@@ -55,7 +55,7 @@ router.post('/find-way', async function(req, res){
     res.redirect('/not-found');
   } else {
     
-    res.redirect('/found')
+    res.render('found', {findJourney});
   }
 });
 
