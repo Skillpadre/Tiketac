@@ -19,7 +19,7 @@
             <a class="navbar" href="/">
             <img src="/images/train.png" width="50" height="50" class="logo" alt="">
             <span class="tic">Ticketac</span>
-            <img src="/images/train.png" width="50" height="50" class="logo" alt="">
+            <span class="logout">Deconnexion</span>
             </a>
         </nav>
   
@@ -31,24 +31,24 @@
          
 
          
-           <!-- SIGN IN AREA -->
+           <!-- DEPARTURE -->
+
+           <h4 class="titleForm">One-way ticket :</h4>
+
            <div class="col-12 col-md-3 text-center">
 
             <div class="formArea">
 
-              <h4 class="titleForm">Sign-in :</h4>
+              
 
-              <form action="/users/sign-in" method="POST">
+              <form action="/find-way" method="POST">
                 <div class="form-group">
                   
-                  <input name="emailFromFront" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email">
+                  <input name="fromCityFromFront" type="text" class="form-control" aria-describedby="emailHelp" placeholder="From: Paris, Marseille...">
                 </div>
-                <div class="form-group">
-                  
-                  <input name="passwordFromFront" type="password" class="form-control" placeholder="Password">
-                </div>
+               
 
-                <button type="submit" class="btn btn-danger">Confirm</button>
+                
               </form>
 
             </div>
@@ -56,37 +56,46 @@
           </div>
 
 
-          <!-- SIGN UP AREA -->
+          <!-- ARRIVAL -->
           <div class="col-12 col-md-3 text-center">
 
             <div class="formArea">
-              <h4 class="titleForm">Sign-up :</h4>
+              
    
-              <form action="/users/sign-up" method="POST" >
+              <form action="/find-way" method="POST" >
                 <div class="form-group">
                  
-                  <input name="NameFromFront" type="text" class="form-control" placeholder="Name">
+                  <input name="toCityFromFront" type="text" class="form-control" placeholder="To: Lille, Nantes...">
                 </div>
-                <div class="form-group">
-                   
-                    <input name="FirstNameFromFront" type="text" class="form-control" placeholder="Firstname">
-                  </div>
-                <div class="form-group">
-                  
-                  <input name="emailFromFront" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email">
-                </div>
-                <div class="form-group">
-                  
-                  <input name="passwordFromFront" type="password" class="form-control"  placeholder="Password">
-                </div>
-
-                <button type="submit" class="btn btn-danger">Confirm</button>
+               
               </form>
             </div>
 
           </div>
 
-         
+          <div class="col-12 col-md-3 text-center">
+
+            <div class="formArea">
+              
+   
+              <form action="/find-way" method="POST" >
+                <div class="form-group">
+                 
+                  <label for="start">Start date:</label>
+
+                 <input type="date" id="start" name="trip-start"
+                   value="2018-07-22"
+                    min="2020-01-01" max="2023-12-31">
+
+                </div>
+               
+               
+              </form>
+            </div>
+
+          </div>
+
+          <button type="submit" class="btn btn-danger">Go</button>
 
         </div>
       </div>

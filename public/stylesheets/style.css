@@ -19,14 +19,27 @@ padding-top:0px
 .logout {
   margin-left: auto;
   margin-right: 15px;
+  color: black;
 }
 
 
 .header{
   background-color: white;
-  font-size: 30px;
+  
 }
 
 .formArea{
   padding-top: 50px;
+}
+
+.row{
+  display: flex;
+  justify-content: center ;
+  margin-top: 60px;
+}
+
+.tic{
+font-size: 25px;
+color: black;
+font-weight: bold;
 }
