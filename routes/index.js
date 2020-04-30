@@ -8,11 +8,11 @@ var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('login', { title: 'Express' });
+  res.render('login');
 });
 
 router.get('/homepage', function(req, res, next) {
-  res.render('homepage',{ title: 'Express' });
+  res.render('homepage');
 });
 
 
@@ -40,6 +40,7 @@ router.get('/result', function(req, res, next) {
 });
 
 router.post('/find-way', async function(req, res){
+  console.log(req.body.dateFromFront);
   let departure = req.body.fromCityFromFront;
   let arrival = req.body.toCityFromFront;
   let date = req.body.dateFromFront;
@@ -61,6 +62,25 @@ router.post('/find-way', async function(req, res){
 router.get('/valid-ticket', async function(req, res){
   let journeyId = req.query.id;
   req.session.myTickets.push(journeyId);
+  res.redirect('myTickets');
+});
+
+
+router.get('/confirm', async function(req, res, next){
+  for(let i=0; i<req.session.myTickets.length; i++){
+    await userModel.updateOne(
+      {_id: req.session.user.id},
+      { $push: {journeys: req.session.myTickets[i]} }
+    );
+  }
+  res.redirect('/myLastTrips');
+});
+
+
+router.get('/myLastTrip', async function(req, res, next){
+  let user = await userModel.findById(req.session.user.id);
+  let lastTrips = user.journeys;
+  res.render('lastTrips', {lastTrips});
 });
 
 module.exports = router;
