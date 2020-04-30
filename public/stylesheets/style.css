@@ -1,10 +1,15 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #1BA7F1;
+  padding-bottom:0px;
+padding-left:0px;
+padding-right:0px;
+padding-top:0px
 }
 
-a {
-  color: #00B7FF;
+.a{
+  text-align: left;
 }
 
 .titleForm{
@@ -17,14 +22,11 @@ a {
 }
 
 
-
-.home {
-  
-  background-color: rgb(109,179,242);
- 
-
+.header{
+  background-color: white;
+  font-size: 30px;
 }
 
-
-
-
+.formArea{
+  padding-top: 50px;
+}

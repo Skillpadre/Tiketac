@@ -12,23 +12,34 @@
    
     
 
-      <div class="home">
+      
+
+       
+        <nav class=" header col-12 ">
+            <a class="navbar" href="/">
+            <img src="/images/train.png" width="50" height="50" class="logo" alt="">
+            Ticketac
+            </a>
+        </nav>
+  
+    <div class="container-fluid"> 
+
 
         <div class="row">
 
-          <div class="col-12 text-center get_started">
+          <div class="col-12 text-center offset-md-6 ">
             
           </div>
 
          
            <!-- SIGN IN AREA -->
-           <div class="col-12 col-sm-6 text-center">
+           <div class="col-12 col-md-3 text-center">
 
             <div class="formArea">
 
               <h4 class="titleForm">Sign-in :</h4>
 
-              <form action="/sign-in" method="POST">
+              <form action="/users/sign-in" method="POST">
                 <div class="form-group">
                   
                   <input name="emailFromFront" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email">
@@ -47,12 +58,12 @@
 
 
           <!-- SIGN UP AREA -->
-          <div class="col-12 col-sm-6 text-center">
+          <div class="col-12 col-md-3 text-center">
 
             <div class="formArea">
               <h4 class="titleForm">Sign-up :</h4>
    
-              <form action="/sign-up" method="POST" >
+              <form action="/users/sign-up" method="POST" >
                 <div class="form-group">
                  
                   <input name="NameFromFront" type="text" class="form-control" placeholder="Name">
