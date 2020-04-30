@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+let userModel = require('../models/users');
 let journeyModel = require('../models/connection');
 
 var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
@@ -10,6 +10,10 @@ var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('login', { title: 'Express' });
+});
+
+router.get('/homepage', function(req, res, next) {
+  res.render('index',{ title: 'Express' });
 });
 
 
@@ -35,5 +39,13 @@ router.get('/result', function(req, res, next) {
 
   res.render('index', { title: 'Express' });
 });
+
+router.get('/find-way', function(req, res, next){
+  let villeDepart = req.body.start
+  let villeArrive = req.body.toCity
+  let date = req.body.date
+  res.render('index',{ title: 'Express' });
+});
+
 
 module.exports = router;

@@ -9,8 +9,8 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.post('/sing-up', async function(req, res){
-  let searchEmail = userModel.findOne({email: req.body.email});
+router.post('/sign-up', async function(req, res){
+  let searchEmail = await userModel.findOne({email: req.body.email});
 
   if(searchEmail){
     console.log("Addresse mail déjà utilisé");
@@ -26,12 +26,12 @@ router.post('/sing-up', async function(req, res){
     req.session.user = {id: newUserSave._id, name: newUserSave.firstName};
 
     console.log("ca marche");
-    res.redirect('/');
+    res.redirect('/homepage');
   } 
 });
 
-router.post('/sing-in', async function(req, res){
-  let searchUser = userModel.findOne({
+router.post('/sign-in', async function(req, res){
+  let searchUser = await userModel.findOne({
     email: req.body.email,
     password: req.body.password
   });
@@ -44,8 +44,9 @@ router.post('/sing-in', async function(req, res){
     req.session.user = {id: searchUser._id, name: searchUser.firstName};
 
     console.log("Connecté")
-    res.redirect('/');
+    res.redirect('/homepage');
   }
 })
+
 
 module.exports = router;
