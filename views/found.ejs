@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hackathon</title>
+    <!-- To add in order to scale the view for mobiles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <body>
+   
+  
+
+      
+
+       
+        <nav class=" header col-12 ">
+            <a class="navbar" href="/">
+            <img src="/images/train.png" width="50" height="50" class="logo" alt="">
+            <span class="tic">Ticketac</span>
+            <span class="logout">Deconnexion</span>
+            </a>
+        </nav>
+  
+
+        
+    <div class="container-fluid"> 
+
+        <h4 class="available">Tickets available on 02/08</h4>
+  
+          <div class="row">
+  
+  
+             
+  
+             <div class="col-12 col-md-3 text-center">
+  
+                <div class="trajet">
+                
+                  Paris/Lille 
+                
+                </div>
+
+                <div class="departure">
+                    train departure at : 15.00 pm
+                </div>
+                 
+                <div class="prix">
+                   93€
+                </div>
+                  
+                <button type="submit" class="btn btn-danger">OK</button>
+                
+  
+              </div>
+  
+            </div>
+  
+  
+            <!-- ARRIVAL -->
+            <div class="col-12 col-md-3 text-center">
+  
+              <div class="formArea">
+                
+     
+                
+                  <div class="form-group">
+                   
+                    <input name="toCityFromFront" type="text" class="form-control" placeholder="To: Lille, Nantes...">
+                  </div>
+                 
+                
+              </div>
+  
+            </div>
+  
+            <div class="col-12 col-md-3 text-center">
+  
+              <div class="formArea">
+                
+     
+                <form action="/find-way" method="POST" >
+  
+                  <div class="form-group">
+                   
+                    <label for="start" class="calendrier">Start date:</label>
+  
+                   <input type="date" id="start" name="trip-start"
+                     value="2020-04-30"
+                      min="2020-01-01" max="2023-12-31"  >
+  
+                      <button type="submit" class="btn btn-danger">Go</button>
+  
+                  </div>
+  
+                </form>
+              </div>
+  
+            </div>
+  
+           
+  
+          </div>
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
+
