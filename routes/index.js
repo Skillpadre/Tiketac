@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-let userModel = require('../models/users');
 let journeyModel = require('../models/connection');
 
 var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
@@ -13,7 +12,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/homepage', function(req, res, next) {
-  res.render('index',{ title: 'Express' });
+  res.render('homepage',{ title: 'Express' });
 });
 
 
@@ -40,12 +39,28 @@ router.get('/result', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/find-way', function(req, res, next){
-  let villeDepart = req.body.start
-  let villeArrive = req.body.toCity
-  let date = req.body.date
+router.post('/find-way', async function(req, res){
+  let departure = req.body.fromCityFromFront;
+  let arrival = req.body.toCityFromFront;
+  let date = req.body.dateFromFront;
+
+  let findJourney = await journeyModel.find({departure: departure, arrival: arrival, date: date});
+  console.log(findJourney);
+  if(findJourney.length < 1){
+    
+    res.render('/not-found');
+  } else {
+    
+    res.render('/found', {journeys: findJourney})
+  }
+
   res.render('index',{ title: 'Express' });
 });
 
+
+router.get('/valid-ticket', async function(req, res){
+  let journeyId = req.query.id;
+  req.session.myTickets.push(journeyId);
+});
 
 module.exports = router;

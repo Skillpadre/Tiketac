@@ -10,17 +10,17 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/sign-up', async function(req, res){
-  let searchEmail = await userModel.findOne({email: req.body.email});
+  let searchEmail = await userModel.findOne({email: req.body.emailFromFront});
 
   if(searchEmail){
-    console.log("Addresse mail déjà utilisé");
+    console.log(searchEmail);
     res.redirect('/');
   } else {
     let newUser = new userModel({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      password: req.body.password
+      firstName: req.body.FirstNameFromFront,
+      lastName: req.body.NameFromFront,
+      email: req.body.emailFromFront,
+      password: req.body.passwordFromFront
     });
     let newUserSave = await newUser.save();
     req.session.user = {id: newUserSave._id, name: newUserSave.firstName};
@@ -32,8 +32,8 @@ router.post('/sign-up', async function(req, res){
 
 router.post('/sign-in', async function(req, res){
   let searchUser = await userModel.findOne({
-    email: req.body.email,
-    password: req.body.password
+    email: req.body.emailFromFront,
+    password: req.body.passwordFromFront
   });
 
   if(!searchUser){
