@@ -41,6 +41,9 @@ router.get('/result', function(req, res, next) {
 
 router.post('/find-way', async function(req, res){
   console.log(req.body.dateFromFront);
+  console.log(req.body.fromCityFromFront);
+  console.log(req.body.toCityFromFront);
+
   let departure = req.body.fromCityFromFront;
   let arrival = req.body.toCityFromFront;
   let date = req.body.dateFromFront;
@@ -49,20 +52,31 @@ router.post('/find-way', async function(req, res){
   console.log(findJourney);
   if(findJourney.length < 1){
     
-    res.render('/not-found');
+    res.redirect('/not-found');
   } else {
     
-    res.render('/found', {journeys: findJourney})
+    res.redirect('/found')
   }
-
-  res.render('index',{ title: 'Express' });
 });
 
+
+router.get('/not-found', function(req, res, next){
+  res.render('notFound');
+});
+
+
+router.get('/found', function(req, res, next){
+  res.render('found');
+});
 
 router.get('/valid-ticket', async function(req, res){
   let journeyId = req.query.id;
   req.session.myTickets.push(journeyId);
-  res.redirect('myTickets');
+  res.redirect('/myTickets', {tickets: req.session.myTickets});
+});
+
+router.get('/my-tickets', function(req, res, next){
+res.render('myTickets', {tickets: req.session.myTickets});
 });
 
 
