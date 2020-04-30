@@ -74,3 +74,42 @@ font-weight: bold;
   padding-left: 20px;
   font-size: 20px;
 }
+
+.ligne{
+  display: flex;
+  justify-content: center ;
+  margin-top: 60px;
+  background-color: white;
+  padding-top: 7px;
+  margin-right: 700px;
+  margin-left: 700px;
+  border-radius: 10px;
+
+}
+
+.prix{
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 9px;
+}
+
+.ok{
+  margin-bottom: 5px;
+}
+
+.trajet{
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 9px;
+}
+
+.departure{
+  margin-top: 9px;
+}
+
+.available{
+  color: white;
+  margin-top: 50px;
+  padding-right: 500px;
+  font-size: 50px;
+}
