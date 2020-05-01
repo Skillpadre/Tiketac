@@ -41,20 +41,16 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <% for(let i=0; i<tickets.length; i++) { %>
                   <tr>
                     <th scope="row">1</th>
-                    <td>Paris/Lille</td>
-                    <td>02/08/2019</td>
-                    <td>15:00pm</td>
-                    <td>93€</td>
+                  
+                    <td>  <%= tickets[i].departure %> / <%= tickets[i].arrival %></td>
+                    <td><%= tickets[i].date %></td>
+                    <td><%= tickets[i].departureTime %> h</td>
+                    <td><%= tickets[i].price %>€</td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Paris/Bordeaux</td>
-                    <td>07/12/2019</td>
-                    <td>10:00pm</td>
-                    <td>125€</td>
-                  </tr>
+                  <% } %>
                 </tbody>
                 <tfoot class="alert alert-danger" role="alert">
                   <tr>
@@ -73,11 +69,11 @@
 
               <div class="row col-12 col-sm-10 col-md-8 offset-sm-8 offset-md-10 " style="margin-top: 10px; "">
 
-                <a href="/MyLastTrips"><button class="btn btn-danger">Confirm</button></a>
+                <a href="/confirm"><button class="btn btn-danger">Confirm</button></a>
               </div>
     </div>
 
-
+   
 
  
     </div>
