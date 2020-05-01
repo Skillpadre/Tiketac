@@ -38,6 +38,7 @@ router.post('/sign-in', async function(req, res){
     req.session.myTickets = [];
     console.log("Connecté")
     res.redirect('/homepage');
+
   }
 });
 

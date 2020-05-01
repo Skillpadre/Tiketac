@@ -101,7 +101,8 @@ router.get('/confirm', async function(req, res, next){
     user.journeys.push(req.session.myTickets[i]);
   }
   await user.save();
-  res.redirect('/myLastTrips');
+  req.session.myTickets = [];
+  res.redirect('/homepage');
 });
 
 

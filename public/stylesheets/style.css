@@ -1,17 +1,21 @@
-html, body{
-  min-height : 100vh;
-}
 
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: linear-gradient(#6db3f2, #1e69de);
+  min-height: 100vh;
+  background: #3280b1; /* Old browsers */
+  background: -moz-linear-gradient(top,  #E3F5FC 0%, #3280b1 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #E3F5FC 0%,#3280b1 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #E3F5FC 0%,#3280b1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#3280b1',GradientType=0 ); /* IE6-9 */
   background-repeat: no-repeat;
-  text-align: center;
-  padding-bottom:0px;
-  padding-left:0px;
-  padding-right:0px;
-  padding-top:0px
+  color: #383838;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
+
+footer {
+  margin-top: auto;
 }
 
 /*insérer image de fond*/
@@ -22,6 +26,27 @@ body {
   text-align: center;
 }
  */
+ .row{
+  display: flex;
+  justify-content: center ;
+}
+
+.row-login {
+  margin-top: 60px;
+}
+
+.row-notFound {
+  margin-top: 100px; 
+  color: white;
+}
+
+.btn-notFound {
+  margin-left: 10px;
+}
+
+.table {
+  font-weight: bold;
+}
 
 .a{
   text-align: left;
@@ -71,11 +96,6 @@ body {
   
 }
 
-.row{
-  display: flex;
-  justify-content: center ;
-  margin-top: 60px;
-}
 
 .tic{
 font-size: 25px;
@@ -83,36 +103,12 @@ color: black;
 font-weight: bold;
 }
 
-.onewayForm{
-  color : white;
-  font-size: 50px;
-  margin-top: 40px;
-  margin-right: 1300px;
-}
-
-.calendrier{
-  color: white;
-  font-size: 20px;
-}
-
-#start{
-  height: 40px;
-  width : 300px;
-  margin-right: 20px;
-  margin-left: 10px;
-  padding-left: 20px;
-  font-size: 20px;
-}
-
-.ligne{
-  display: flex;
-  justify-content: center ;
-  margin-top: 60px;
+#dateForm{
   background-color: white;
-  padding-top: 7px;
-  margin-right: 700px;
-  margin-left: 700px;
-  border-radius: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 20px;
+  max-width: 189px;
 }
 
 .liste_ticket {
@@ -147,11 +143,9 @@ font-weight: bold;
   text-align: left;
 }
 
-.eiffelTowerhomepage{
-  margin-top: 264px;
+.eiffelTower{
+  height: 300px;
+  width: 300px;
 }
 
-.eiffelTowerlogin{
-  margin-top: 100px;
-}
 

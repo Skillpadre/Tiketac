@@ -2,7 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Hackathon</title>
+    <title>Ticketac - Login</title>
+    <link rel="icon" type="/images/png" href="/images/train.png" />
     <!-- To add in order to scale the view for mobiles -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -24,73 +25,75 @@
     <div class="container-fluid"> 
 
 
-        <div class="row">
+        <div class="row row-login">
 
-         
-
-         
            <!-- SIGN IN AREA -->
            <div class="col-12 col-md-3 text-center">
 
             <div class="formArea">
 
-              <h4 class="titleForm">Sign-in :</h4>
+              <h4 class="titleForm">Se Connecter :</h4>
 
               <form action="/users/sign-in" method="POST">
                 <div class="form-group">
                   
-                  <input name="emailFromFront" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email">
+                  <input name="emailFromFront"  type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email">
                 </div>
                 <div class="form-group">
                   
-                  <input name="passwordFromFront" type="password" class="form-control" placeholder="Password">
+                  <input name="passwordFromFront" type="password" class="form-control" placeholder="Mot de passe">
                 </div>
 
-                <button type="submit" class="btn btn-danger">Confirm</button>
+                <button type="submit" class="btn btn-danger">Connexion</button>
+                
               </form>
 
             </div>
 
           </div>
-
 
           <!-- SIGN UP AREA -->
           <div class="col-12 col-md-3 text-center">
 
             <div class="formArea">
-              <h4 class="titleForm">Sign-up :</h4>
+              <h4 class="titleForm">Créer un compte :</h4>
    
               <form action="/users/sign-up" method="POST" >
                 <div class="form-group">
                  
-                  <input name="NameFromFront" type="text" class="form-control" placeholder="Last name">
+                  <input name="FirstNameFromFront" required type="text" class="form-control" placeholder="Prénom">
                 </div>
                 <div class="form-group">
                    
-                    <input name="FirstNameFromFront" type="text" class="form-control" placeholder="First name">
+                    <input name="NameFromFront" required type="text" class="form-control" placeholder="Nom">
                   </div>
                 <div class="form-group">
                   
-                  <input name="emailFromFront" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email">
+                  <input name="emailFromFront" required type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email">
                 </div>
                 <div class="form-group">
                   
-                  <input name="passwordFromFront" type="password" class="form-control"  placeholder="Password">
+                  <input name="passwordFromFront" type="password" class="form-control"  placeholder="Mot de passe" required>
                 </div>
 
-                <button type="submit" class="btn btn-danger">Confirm</button>
+                <button type="submit" class="btn btn-danger">Créer</button>
               </form>
             </div>
 
           </div>
+        </div>
 
-         
-
+        <div class="row">
+          <img src="/images/landmark.png" class="eiffelTower">
         </div>
       </div>
 
-      <img src="/images/landmark.png" class="eiffelTowerlogin">
 
+      <footer>
+        <p class="text-center">
+          <i>© 2020 La Capsule</i>
+        </p>
+      </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

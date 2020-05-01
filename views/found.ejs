@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Hackathon</title>
+  <title>Billets : <%= day %>/<%= month %></title>
+  <link rel="icon" type="/images/png" href="/images/train.png" />
   <!-- To add in order to scale the view for mobiles -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -30,7 +31,7 @@
 
 
   <div class="container-fluid">
-    <h4 class="available col-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2">Tickets available on <%= day %>/<%= month %></h4>
+    <h4 class="available col-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2">Billets disponibles pour le <%= day %>/<%= month %></h4>
 
     <% for(let i=0; i<findJourney.length; i++) { %> 
       <div class="row liste_ticket col-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2  text-center">
@@ -49,7 +50,11 @@
 
   </div>
 
-
+  <footer>
+    <p class="text-center">
+      <i>© 2020 La Capsule</i>
+    </p>
+  </footer>
   
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
