@@ -43,11 +43,14 @@
                 <tbody>
                   <% let total = 0;
                     for(let i=0; i<tickets.length; i++) { 
-                      total += tickets[i].price; %>
+                      total += tickets[i].price; 
+                      let date = new Date(tickets[i].date);
+                      let dateString = date.toLocaleString('default', {day: '2-digit'}) + "/" + date.toLocaleString('default', {month: '2-digit'}) + "/" + date.toLocaleString('default', {year: 'numeric'});
+                      %>
                   <tr>
-                    <th scope="row"><%= i %></th>
+                    <th scope="row"><%= i+1 %></th>
                     <td><%= tickets[i].departure %> / <%= tickets[i].arrival %></td>
-                    <td><%= tickets[i].date %></td>
+                    <td><%= dateString %></td>
                     <td><%= tickets[i].departureTime %> h</td>
                     <td><%= tickets[i].price %>€</td>
                   </tr>
@@ -56,16 +59,9 @@
                 <tfoot class="alert alert-danger" role="alert">
                   <tr>
                     <th scope="row" colspan="4" style="text-align: left;">Total</th>
-                    
                     <td><%= total %>€</td>
                   </tr>
-
-                  <tr>
-                    
-            
-                  </tr>
                 </tfoot>
-         
               </table>
 
               <div class="row col-12 col-sm-10 col-md-8 offset-sm-8 offset-md-10 " style="margin-top: 10px; "">

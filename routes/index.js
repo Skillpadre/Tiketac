@@ -74,18 +74,20 @@ router.get('/my-ticket', async function(req, res, next){
     console.log('pas de session');
     res.redirect('/');
   } else {
-
+    console.log(req.session.myTickets);
     let journeyId = req.query.id;
     req.session.myTickets.push(journeyId);
+    console.log(req.session.myTickets);
 
     let tableau = [];
 
     for(let i=0; i<req.session.myTickets.length; i++){
      let trajet = await journeyModel.findById({_id: req.session.myTickets[i]});
       tableau.push(trajet);
+      console.log('tableau')
       console.log(tableau);
+    }
     res.render('myTickets', {tickets: tableau, user: req.session.user});
-  }
   }
 });
 
@@ -96,8 +98,9 @@ router.get('/confirm', async function(req, res, next){
   user = await userModel.findById(req.session.user.id);
 
   for(let i=0; i<req.session.myTickets.length; i++){
-      user.journey = req.session.myTickets[i];
+    user.journeys.push(req.session.myTickets[i]);
   }
+  await user.save();
   res.redirect('/myLastTrips');
 });
 
@@ -107,10 +110,12 @@ router.get('/myLastTrips', async function(req, res, next){
     res.redirect('/');
   } else {
     let lastTrips = [];
-    console.log(req.session.user.id);
     let user = await userModel.findById(req.session.user.id);
-    console.log(user);
-    lastTrips = user.journeys;
+
+    for(let i=0; i<user.journeys.length; i++){
+      let journeys = await journeyModel.findById(user.journeys[i]);
+      lastTrips.push(journeys);
+    }
     res.render('lastTrips', {lastTrips, user: req.session.user});
   }
 

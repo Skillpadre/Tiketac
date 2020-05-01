@@ -32,7 +32,6 @@
               <table class="table table-light">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col">N°</th>
                     <th scope="col">Journey</th>
                     <th scope="col">Date</th>
                     <th scope="col">Departure time</th>
@@ -40,28 +39,21 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <% for(let i=0; i<tickets.length; i++) { %>
-                    <tr>
-                      <th scope="row">1</th>
-                    
-                      <td>  <%= tickets[i].departure %> / <%= tickets[i].arrival %></td>
-                      <td><%= tickets[i].date %></td>
-                      <td><%= tickets[i].departureTime %> h</td>
-                      <td><%= tickets[i].price %>€</td>
-                    </tr>
-                   
-                </tbody>
-                <tfoot class="alert alert-danger" role="alert">
+                  <% let total = 0;
+                    for(let i=0; i<lastTrips.length; i++) { 
+                      let date = new Date(lastTrips[i].date);
+                      let dateString = date.toLocaleString('default', {day: '2-digit'}) + "/" + date.toLocaleString('default', {month: '2-digit'}) + "/" + date.toLocaleString('default', {year: 'numeric'});
+                      %>
                   <tr>
-                    <th scope="row" colspan="4" style="text-align: left;">Total</th>
-                    
-                    <td>218€</td>
+                    <td><%= dateString %></td>
+                    <td><%= lastTrips[i].departure %> / <%= lastTrips[i].arrival %></td>
+                    <td><%= lastTrips[i].departureTime %> h</td>
+                    <td><%= lastTrips[i].price %>€</td>
                   </tr>
-                </tfoot>
-                  
-                
+                  <% } %>
+                </tbody>
               </table>
-    </div>
+        </div>
 
 
 
