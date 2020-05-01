@@ -15,10 +15,13 @@
       <a href='/homepage'><img src="/images/train.png" width="50" height="50" class="logo" alt="">
       <span class="tic">Ticketac</span></a>
       <div>
+        <% if(user) { %> 
+          <span class="username"><%= user.name %></span>
         <a href="/users/logout"><span class="logout">Deconnexion</span></a>
         <a href="/myLastTrips"><span class="lastTripNavbar">My last trips</span></a>
-      </div>
-      
+        <% } else { %> 
+          <a href="/"><span class="logout">Connexion</span></a>
+        <% } %>      
     </nav>
 
     <div class="container-fluid"> 

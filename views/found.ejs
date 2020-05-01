@@ -18,60 +18,36 @@
     <a href='/homepage'><img src="/images/train.png" width="50" height="50" class="logo" alt="">
     <span class="tic">Ticketac</span></a>
     <div>
+      <% if(user) { %> 
+        <span class="username"><%= user.name %></span>
       <a href="/users/logout"><span class="logout">Deconnexion</span></a>
       <a href="/myLastTrips"><span class="lastTripNavbar">My last trips</span></a>
-    </div>
-    
+      <% } else { %> 
+        <a href="/"><span class="logout">Connexion</span></a>
+      <% } %>      
   </nav>
 
 
 
   <div class="container-fluid">
-    <h4 class="available col-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2">Tickets available on 02/08</h4>
+    <h4 class="available col-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2">Tickets available on <%= day %>/<%= month %></h4>
 
-    <div class="row liste_ticket col-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2  text-center">
-        <div class="trajet">
-          Paris/Lille
-        </div>
-        <div class="departure">
-          train departure at : 15.00 pm
-        </div>
-        <div class="prix">
-          93€
-
-          <a href="/my-ticket?id=<%= findJourney[0]._id %>"><button class="btn btn-danger btnOkTicket">OK</button></a>
-        </div>
-    </div>
-
-    <div class="row liste_ticket col-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2  text-center">
-      <div class="trajet">
-            Paris/Lille
-          </div>
-          <div class="departure">
-            train departure at : 15.00 pm
-          </div>
-          <div class="prix">
-            93€
-
-            <a href="/my-ticket?id=<%= findJourney[0]._id %>"><button class="btn btn-danger btnOkTicket">OK</button></a>
-          </div>
-      </div>
-
+    <% for(let i=0; i<findJourney.length; i++) { %> 
       <div class="row liste_ticket col-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2  text-center">
         <div class="trajet">
-            Paris/Lille
-          </div>  
+          <%= findJourney[i].departure %> / <%= findJourney[i].arrival %>
+        </div>
         <div class="departure">
-            train departure at : 15.00 pm
-          </div>
-          <div class="prix">
-            93€
-
-            <a href="/my-ticket?id=<%= findJourney[0]._id %>"><button class="btn btn-danger btnOkTicket">OK</button></a>
-          </div>
-      </div>
-
+          train departure at : <%= findJourney[i].departureTime %> h
+        </div>
+        <div class="prix">
+          <%= findJourney[i].price %>€
+          <a href="/my-ticket?id=<%= findJourney[i]._id %>"><button class="btn btn-danger btnOkTicket">OK</button></a>
+        </div>
     </div>
+    <% } %>
+
+  </div>
 
 
 

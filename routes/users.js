@@ -18,8 +18,7 @@ router.post('/sign-up', async function(req, res){
     });
     let newUserSave = await newUser.save();
     req.session.user = {id: newUserSave._id, name: newUserSave.firstName};
-
-    console.log("ca marche");
+    req.session.myTickets = [];
     res.redirect('/homepage');
   } 
 });
@@ -36,7 +35,7 @@ router.post('/sign-in', async function(req, res){
   } else {
     console.log("Bienvenue " + searchUser.firstName);
     req.session.user = {id: searchUser._id, name: searchUser.firstName};
-
+    req.session.myTickets = [];
     console.log("Connecté")
     res.redirect('/homepage');
   }
@@ -44,6 +43,7 @@ router.post('/sign-in', async function(req, res){
 
 router.get('/logout', function(req, res, next){
   req.session.user = null;
+  req.session.myTickets = null;
   res.redirect('/')
 })
 

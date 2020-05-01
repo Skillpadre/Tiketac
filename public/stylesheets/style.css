@@ -26,6 +26,13 @@ body {
   color : white;
 }
 
+.username {
+  margin-left: auto;
+  margin-right: 15px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
 .logout {
   margin-left: auto;
   margin-right: 15px;
@@ -119,8 +126,6 @@ font-weight: bold;
   font-size: 20px;
   font-weight: bold;
 }
-
-
 
 .available{
   color: white;
