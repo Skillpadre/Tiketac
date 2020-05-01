@@ -25,86 +25,22 @@
     </nav>
   
     <div class="container-fluid"> 
+      <h4 class="titleHomepage col-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2">One-way ticket :</h4>
 
-      <h4 class="onewayForm">One-way ticket :</h4>
+              <form class="formHomepage row col-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2" action="/find-way" method="POST" >
+                  <input name="fromCityFromFront" type="text" class="form-control col-12 col-lg-3" aria-describedby="emailHelp" placeholder="From: Paris, Marseille...">
 
-        <div class="row">
+                  <input name="toCityFromFront" type="text" class="form-control col-12 col-lg-3" placeholder="To: Lille, Nantes...">
 
-         
-
-         
-           <!-- DEPARTURE -->
-
-           
-
-           <div class="col-12 col-md-3 text-center">
-
-            <div class="formArea">
-
-              <form action="/find-way" method="POST" >
-
-              
-                <div class="form-group">
-                  
-                  <input name="fromCityFromFront" type="text" class="form-control" aria-describedby="emailHelp" placeholder="From: Paris, Marseille...">
-                </div>
-               
-
-                
-              
-
-            </div>
-
-          </div>
-
-
-          <!-- ARRIVAL -->
-          <div class="col-12 col-md-3 text-center">
-
-            <div class="formArea">
-              
-   
-              
-                <div class="form-group">
-                 
-                  <input name="toCityFromFront" type="text" class="form-control" placeholder="To: Lille, Nantes...">
-                </div>
-               
-              
-            </div>
-
-          </div>
-
-          <div class="col-12 col-md-3 text-center">
-
-            <div class="formArea">
-              
-   
-              
-
-                <div class="form-group">
-                 
-                  <label for="start" class="calendrier">Start date:</label>
-
-                 <input type="date" id="start" name="dateFromFront"
+                 <input type="date" id="start" name="dateFromFront" class=" col-lg-4"
                    value="2018-11-21"
                     min="2018-01-01" max="2023-12-31"  >
-
                     <button type="submit" class="btn btn-danger">Go</button>
-
-                </div>
-
               </form>
-            </div>
-
-          </div>
-
-         
-
-        </div>
+        
       </div>
 
-  
+      col-xs-12 col-sm-6 col-md-4
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

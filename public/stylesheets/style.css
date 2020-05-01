@@ -49,13 +49,21 @@ body {
   color: black;
 }
 
+.titleHomepage {
+  color: white;
+  margin-top: 50px;
+  font-size: 30px;
+  text-align: left;
+}
+
+.formHomepage {
+  display: flex;
+
+}
+
 .header{
   background-color: white;
   
-}
-
-.formArea{
-  padding-top: 50px;
 }
 
 .row{
