@@ -1,7 +1,12 @@
+html, body{
+  min-height : 100vh;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #1BA7F1;
+  background: linear-gradient(#6db3f2, #1e69de);
+  background-repeat: no-repeat;
   text-align: center;
   padding-bottom:0px;
   padding-left:0px;
@@ -141,3 +146,12 @@ font-weight: bold;
   font-size: 30px;
   text-align: left;
 }
+
+.eiffelTowerhomepage{
+  margin-top: 264px;
+}
+
+.eiffelTowerlogin{
+  margin-top: 100px;
+}
+
