@@ -1,150 +1,90 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Hackathon</title>
-    <!-- To add in order to scale the view for mobiles -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-  </head>
-  <body>
-   
-  
 
-      
+<head>
+  <meta charset="utf-8">
+  <title>Hackathon</title>
+  <!-- To add in order to scale the view for mobiles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
 
-       
-        <nav class=" header col-12 ">
-            <a class="navbar" href="/">
-            <img src="/images/train.png" width="50" height="50" class="logo" alt="">
-            <span class="tic">Ticketac</span>
-            <span class="logout">Deconnexion</span>
-            </a>
-        </nav>
-  
+<body>
 
-        
-    <div class="container-fluid"> 
-
-        <h4 class="available">Tickets available on 02/08</h4>
+  <nav class="navbar header col-12 ">
+    
+    <a href='/homepage'><img src="/images/train.png" width="50" height="50" class="logo" alt="">
+    <span class="tic">Ticketac</span></a>
+    <div>
+      <a href="/users/logout"><span class="logout">Deconnexion</span></a>
+      <a href="/myLastTrips"><span class="lastTripNavbar">My last trips</span></a>
+    </div>
+    
+  </nav>
 
 
-        <form action="/valid-ticket" method="POST" >
 
+  <div class="container-fluid">
+    <h4 class="available col-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2">Tickets available on 02/08</h4>
 
-          <div class="ligne">
-  
-  
-             
-  
-             <div class="col-12 col-md-3 text-center">
-  
-                <div class="trajet">
-                
-                  Paris/Lille 
-                
-                </div>
-             </div>
-
-             <div class="col-12 col-md-3 text-center">
-
-                <div class="departure">
-                    train departure at : 15.00 pm
-                </div>
-            </div>
-                <div class="col-12 col-md-3 text-center">
-                 
-                <div class="prix">
-                   93€
-                </div>
-            </div>
-                <div class="col-12 col-md-3 text-center">
-                  <div class="ok">
-                <button type="submit" class="btn btn-danger">OK</button>
-            </div>
-            </div>  
-  
+    <div class="row liste_ticket col-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2  text-center">
+        <div class="trajet">
+          Paris/Lille
         </div>
-
-
-        <div class="ligne">
-  
-  
-             
-  
-            <div class="col-12 col-md-3 text-center">
- 
-               <div class="trajet">
-               
-                 Paris/Lille 
-               
-               </div>
-            </div>
-
-            <div class="col-12 col-md-3 text-center">
-
-               <div class="departure">
-                   train departure at : 15.00 pm
-               </div>
-           </div>
-               <div class="col-12 col-md-3 text-center">
-                
-               <div class="prix">
-                  93€
-               </div>
-           </div>
-               <div class="col-12 col-md-3 text-center">
-                 <div class="ok">
-               <button type="submit" class="btn btn-danger">OK</button>
-           </div>
-           </div>  
- 
-       </div>
-
-
-       <div class="ligne">
-  
-  
-             
-  
-        <div class="col-12 col-md-3 text-center">
-
-           <div class="trajet">
-           
-             Paris/Lille 
-           
-           </div>
+        <div class="departure">
+          train departure at : 15.00 pm
         </div>
+        <div class="prix">
+          93€
 
-        <div class="col-12 col-md-3 text-center">
+          <a href="/my-ticket?id=<%= findJourney[0]._id %>"><button class="btn btn-danger btnOkTicket">OK</button></a>
+        </div>
+    </div>
 
-           <div class="departure">
-               train departure at : 15.00 pm
-           </div>
-       </div>
-           <div class="col-12 col-md-3 text-center">
-            
-           <div class="prix">
-              93€
-           </div>
-       </div>
-           <div class="col-12 col-md-3 text-center">
-             <div class="ok">
-           <button type="submit" class="btn btn-danger">OK</button>
-       </div>
-       </div>  
+    <div class="row liste_ticket col-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2  text-center">
+      <div class="trajet">
+            Paris/Lille
+          </div>
+          <div class="departure">
+            train departure at : 15.00 pm
+          </div>
+          <div class="prix">
+            93€
 
-     </div>
-  </form>
-</div>
-  
-  
-  
+            <a href="/my-ticket?id=<%= findJourney[0]._id %>"><button class="btn btn-danger btnOkTicket">OK</button></a>
+          </div>
+      </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  </body>
+      <div class="row liste_ticket col-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2  text-center">
+        <div class="trajet">
+            Paris/Lille
+          </div>  
+        <div class="departure">
+            train departure at : 15.00 pm
+          </div>
+          <div class="prix">
+            93€
+
+            <a href="/my-ticket?id=<%= findJourney[0]._id %>"><button class="btn btn-danger btnOkTicket">OK</button></a>
+          </div>
+      </div>
+
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
+</body>
+
 </html>
-

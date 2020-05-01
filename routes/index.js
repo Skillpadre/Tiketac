@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 let journeyModel = require('../models/connection');
+let userModel = require('../models/users');
 
 var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
 var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
@@ -10,6 +11,7 @@ var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  req.session.myTickets = [];
   req.session.user = null;
   res.render('login');
 });
@@ -42,6 +44,7 @@ router.get('/result', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+// Route qui s'active quand on choisit 2 villes et une date
 router.post('/find-way', async function(req, res){
   console.log(req.body.dateFromFront);
   console.log(req.body.fromCityFromFront);
@@ -57,30 +60,26 @@ router.post('/find-way', async function(req, res){
     
     res.redirect('/not-found');
   } else {
-    
+    console.log(findJourney[0]._id);
     res.render('found', {findJourney});
   }
 });
 
-
+// Si la recherche n'a rien donné
 router.get('/not-found', function(req, res, next){
   res.render('notFound');
 });
 
 
-router.get('/found', function(req, res, next){
-  res.render('found');
-});
-
-router.get('/valid-ticket', async function(req, res){
+// Route qui s'active quand on choisi un trajet et renvoi à la liste de nos trajet
+router.get('/my-ticket', function(req, res, next){
+  console.log(req.query.id)
   let journeyId = req.query.id;
   req.session.myTickets.push(journeyId);
-  res.redirect('/myTickets', {tickets: req.session.myTickets});
+  res.render('myTickets', {tickets: req.session.myTickets});
 });
 
-router.get('/my-tickets', function(req, res, next){
-res.render('myTickets', {tickets: req.session.myTickets});
-});
+
 
 
 router.get('/confirm', async function(req, res, next){
@@ -94,9 +93,12 @@ router.get('/confirm', async function(req, res, next){
 });
 
 
-router.get('/myLastTrip', async function(req, res, next){
+router.get('/myLastTrips', async function(req, res, next){
+  let lastTrips = [];
+  console.log(req.session.user.id);
   let user = await userModel.findById(req.session.user.id);
-  let lastTrips = user.journeys;
+  console.log(user);
+  lastTrips = user.journeys;
   res.render('lastTrips', {lastTrips});
 });
 

@@ -3,12 +3,6 @@ var router = express.Router();
 let userModel = require('../models/users');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  
-  res.send('respond with a resource');
-});
-
-
 router.post('/sign-up', async function(req, res){
   let searchEmail = await userModel.findOne({email: req.body.emailFromFront});
 
@@ -46,6 +40,11 @@ router.post('/sign-in', async function(req, res){
     console.log("Connecté")
     res.redirect('/homepage');
   }
+});
+
+router.get('/logout', function(req, res, next){
+  req.session.user = null;
+  res.redirect('/')
 })
 
 

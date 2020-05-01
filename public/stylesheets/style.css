@@ -29,9 +29,18 @@ body {
 .logout {
   margin-left: auto;
   margin-right: 15px;
-  color: black;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgb(189, 0, 0);
 }
 
+.lastTripNavbar {
+  margin-left: auto;
+  margin-right: 15px;
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
+}
 
 .header{
   background-color: white;
@@ -83,33 +92,41 @@ font-weight: bold;
   padding-top: 7px;
   margin-right: 700px;
   margin-left: 700px;
-  border-radius: 10px;
+  border-radius: 5px;
+}
 
+.liste_ticket {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 5px;
+  height: 100px;
 }
 
 .prix{
   font-size: 20px;
   font-weight: bold;
-  margin-top: 9px;
 }
 
-.ok{
-  margin-bottom: 5px;
+.btnOkTicket{
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 .trajet{
   font-size: 20px;
   font-weight: bold;
-  margin-top: 9px;
 }
 
 .departure{
-  margin-top: 9px;
+  
 }
 
 .available{
   color: white;
   margin-top: 50px;
-  padding-right: 500px;
-  font-size: 50px;
+  font-size: 30px;
+  text-align: left;
 }
