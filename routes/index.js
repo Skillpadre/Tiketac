@@ -74,7 +74,7 @@ router.get('/my-ticket', async function(req, res, next){
     console.log('pas de session');
     res.redirect('/');
   } else {
-    console.log(req.query.id)
+
     let journeyId = req.query.id;
     req.session.myTickets.push(journeyId);
 
@@ -82,11 +82,9 @@ router.get('/my-ticket', async function(req, res, next){
 
     for(let i=0; i<req.session.myTickets.length; i++){
      let trajet = await journeyModel.findById({_id: req.session.myTickets[i]});
-      console.log(trajet)
-
-      tableau.push(trajet)
-    
-    res.render('myTickets', {tickets: req.session.myTickets, user: req.session.user, tickets : trajet});
+      tableau.push(trajet);
+      console.log(tableau);
+    res.render('myTickets', {tickets: tableau, user: req.session.user});
   }
   }
 });
@@ -95,11 +93,10 @@ router.get('/my-ticket', async function(req, res, next){
 
 
 router.get('/confirm', async function(req, res, next){
+  user = await userModel.findById(req.session.user.id);
+
   for(let i=0; i<req.session.myTickets.length; i++){
-    await userModel.updateOne(
-      {_id: req.session.user.id},
-      { $push: {journeys: req.session.myTickets[i]} }
-    );
+      user.journey = req.session.myTickets[i];
   }
   res.redirect('/myLastTrips');
 });
