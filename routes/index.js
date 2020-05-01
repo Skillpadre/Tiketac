@@ -69,7 +69,7 @@ router.get('/not-found', function(req, res, next){
 
 
 // Route qui s'active quand on choisi un trajet et renvoi à la liste de nos trajet
-router.get('/my-ticket', function(req, res, next){
+router.get('/my-ticket', async function(req, res, next){
   if(!req.session.myTickets){
     console.log('pas de session');
     res.redirect('/');
@@ -77,9 +77,18 @@ router.get('/my-ticket', function(req, res, next){
     console.log(req.query.id)
     let journeyId = req.query.id;
     req.session.myTickets.push(journeyId);
-    res.render('myTickets', {tickets: req.session.myTickets, user: req.session.user});
-  }
 
+    let tableau = [];
+
+    for(let i=0; i<req.session.myTickets.length; i++){
+     let trajet = await journeyModel.findById({_id: req.session.myTickets[i]});
+      console.log(trajet)
+
+      tableau.push(trajet)
+    
+    res.render('myTickets', {tickets: req.session.myTickets, user: req.session.user, tickets : trajet});
+  }
+  }
 });
 
 
