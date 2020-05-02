@@ -105,10 +105,14 @@ font-weight: bold;
 
 #dateForm{
   background-color: white;
-  margin-right: 10px;
-  margin-left: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
   font-size: 20px;
+<<<<<<< HEAD
   max-width: 200px;
+=======
+  max-width: 199px;
+>>>>>>> work
 }
 
 .liste_ticket {
