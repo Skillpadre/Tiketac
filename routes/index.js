@@ -49,6 +49,11 @@ router.post('/find-way', async function(req, res){
   let departure = req.body.fromCityFromFront;
   let arrival = req.body.toCityFromFront;
   let date = req.body.dateFromFront;
+
+  // On met la première lettre de la ville en MAJ et le reste en min
+  departure = departure.charAt(0).toUpperCase() + departure.slice(1).toLowerCase();
+  arrival = arrival.charAt(0).toUpperCase() + arrival.slice(1).toLowerCase();
+
   date = new Date(date);
   let month = date.toLocaleString('default', {month: '2-digit'});
   let day = date.toLocaleString('default', { day: '2-digit'});
