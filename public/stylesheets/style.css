@@ -18,14 +18,6 @@ footer {
   margin-top: auto;
 }
 
-/*insérer image de fond*/
-
-/* .image{
-  background-image: url("/images/landmark.png") ;
-  background-repeat: no-repeat;
-  text-align: center;
-}
- */
  .row{
   display: flex;
   justify-content: center ;
@@ -108,11 +100,7 @@ font-weight: bold;
   margin-right: 5px;
   margin-left: 5px;
   font-size: 20px;
-<<<<<<< HEAD
-  max-width: 200px;
-=======
   max-width: 199px;
->>>>>>> work
 }
 
 .liste_ticket {
